@@ -40,17 +40,16 @@ Predicting daily sales for over 1,100 Rossmann drug stores across Europe. The pr
 
 ```
 rossmann-store-sales-forecasting/
-├── data_sets/
-│   └── Rossmann/
-│       ├── train.csv
-│       ├── test.csv
-│       └── store.csv
-├── notebooks/
-│   └── Gradient_Boosting_organized.ipynb
+├── Gradient_Boosting_organized.ipynb
 ├── app.py
+├── gb_model.pkl
+├── model_columns.pkl
+├── final_submission.csv
 ├── requirements.txt
 └── README.md
 ```
+
+The Rossmann dataset itself (`train.csv`, `test.csv`, `store.csv`) is not included in the repo — it needs to be downloaded separately (see "How to Run" below).
 
 ## How to Run
 
@@ -65,11 +64,11 @@ rossmann-store-sales-forecasting/
    pip install -r requirements.txt
    ```
 
-3. Add the Rossmann dataset files (`train.csv`, `test.csv`, `store.csv`) under `data_sets/Rossmann/`.
+3. Download the Rossmann dataset files (`train.csv`, `test.csv`, `store.csv`) and place them in a `data_sets/Rossmann/` folder — or update the file paths in the notebook to wherever you keep them.
 
 4. Run the notebook to reproduce the analysis and train the models:
    ```bash
-   jupyter notebook notebooks/Gradient_Boosting_organized.ipynb
+   jupyter notebook Gradient_Boosting_organized.ipynb
    ```
 
 5. To try the trained model through a simple web interface, run the Streamlit app:
@@ -79,5 +78,6 @@ rossmann-store-sales-forecasting/
 
 ## Notes
 
-- The dataset isn't included in this repository due to its size — download it separately and place it in `data_sets/Rossmann/`.
-- The trained model (`gb_model.pkl`) and its expected column order (`model_columns.pkl`) need to be saved from the notebook before the Streamlit app can produce predictions.
+- The dataset isn't included in this repository due to its size — download it separately and place it in `data_sets/Rossmann/` (or point the notebook to wherever you store it).
+- `gb_model.pkl` and `model_columns.pkl` are already included in this repo, so the Streamlit app works out of the box. If you retrain the model, re-save both files with the same names before running the app.
+- `final_submission.csv` is the prediction output generated from the test set at the end of the notebook.
