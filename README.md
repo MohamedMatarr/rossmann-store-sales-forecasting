@@ -31,8 +31,8 @@ An end-to-end machine learning project predicting daily sales for over 1,100 Ros
 
 | Model | RMSE (€) | R² Score | Key Observations |
 | :--- | :---: | :---: | :--- |
-| **AdaBoost Regressor** | 4,432.19 | -1.1200 | Struggled with non-linear interactions and exhibited extreme sensitivity to outliers due to weak base estimators (stumps). |
-| **Gradient Boosting** | **1,952.16** | **0.5887** | **Outperformed AdaBoost by reducing RMSE by over 56%.** Successfully learned non-linear feature interactions via sequential residual learning. |
+| **AdaBoost Regressor** | 5,403.029 | -2.12 | Struggled with non-linear interactions and exhibited extreme sensitivity to outliers due to weak base estimators (stumps). |
+| **Gradient Boosting** | **1,609.04** | **0.7226** | **Outperformed AdaBoost by reducing RMSE by over 56%.** Successfully learned non-linear feature interactions via sequential residual learning. |
 
 ---
 
