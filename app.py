@@ -99,7 +99,7 @@ st.markdown("""
 st.markdown("""
 <div class="hero">
     <h1>📈 Rossmann Store Sales Predictor</h1>
-    <p>Forecast expected daily sales for any store using a trained Gradient Boosting model.</p>
+    <p>Forecast expected daily sales for any store using a trained XGBoost model.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -249,14 +249,14 @@ with right:
         )
 
         st.caption(
-            "Estimate produced by a Gradient Boosting Regressor trained on the "
+            "Estimate produced by an XGBoost Regressor trained on the "
             "Rossmann store sales dataset. Actual results may vary."
         )
 
 st.divider()
 with st.expander("ℹ️ About this app"):
     st.write(
-        "This app uses a Gradient Boosting model trained on the Rossmann Store "
+        "This app uses an XGBoost model trained on the Rossmann Store "
         "Sales dataset to estimate a store's daily sales based on calendar, "
         "promotion, and store-profile information. It is intended for "
         "demonstration purposes and should not be used for financial decisions."
