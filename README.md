@@ -1,6 +1,6 @@
 # Rossmann Store Sales Forecasting
 
-Predicting daily sales for over 1,100 Rossmann drug stores across Europe. The project covers data cleaning, feature engineering on time-series data, and a comparison between two boosting models: AdaBoost and Gradient Boosting.
+Predicting daily sales for over 1,100 Rossmann drug stores across Europe. The project covers data cleaning, feature engineering on time-series data, and a comparison between three boosting models: AdaBoost, Gradient Boosting, and XGBoost.
 
 ## Project Overview
 
@@ -28,7 +28,20 @@ Predicting daily sales for over 1,100 Rossmann drug stores across Europe. The pr
 | Model | RMSE (€) | R² Score | Notes |
 |---|---|---|---|
 | AdaBoost Regressor | 5,403.03 | -2.12 | Performed poorly on this data; the weak learners (stumps) couldn't capture the non-linear patterns, and predictions were unstable. |
-| Gradient Boosting | **1,609.04** | **0.72** | Reduced RMSE by about 70% compared to AdaBoost, by fitting sequentially to the residuals. |
+| Gradient Boosting | 1,609.04 | 0.72 | Reduced RMSE by about 70% compared to AdaBoost, by fitting sequentially to the residuals. |
+| XGBoost (default params) | — | — | Added as a further comparison against Gradient Boosting. |
+| **XGBoost (GridSearchCV tuned)** | — | **0.8536** | Best-performing model overall after hyperparameter tuning with GridSearchCV. |
+
+**Best Parameters (XGBoost, via GridSearchCV):**
+```
+{
+    'gamma': 0,
+    'learning_rate': 0.1,
+    'max_depth': 7,
+    'n_estimators': 300,
+    'reg_lambda': 0.1
+}
+```
 
 ## Feature Importance
 
@@ -43,6 +56,7 @@ rossmann-store-sales-forecasting/
 ├── Gradient_Boosting_organized.ipynb
 ├── app.py
 ├── gb_model.pkl
+├── xgb_model.pkl
 ├── model_columns.pkl
 ├── final_submission.csv
 ├── requirements.txt
@@ -79,5 +93,6 @@ The Rossmann dataset itself (`train.csv`, `test.csv`, `store.csv`) is not includ
 ## Notes
 
 - The dataset isn't included in this repository due to its size — download it separately and place it in `data_sets/Rossmann/` (or point the notebook to wherever you store it).
-- `gb_model.pkl` and `model_columns.pkl` are already included in this repo, so the Streamlit app works out of the box. If you retrain the model, re-save both files with the same names before running the app.
+- `gb_model.pkl`, `xgb_model.pkl`, and `model_columns.pkl` are already included in this repo, so the Streamlit app works out of the box. If you retrain any model, re-save the relevant files with the same names before running the app.
+- `xgboost` has been added to `requirements.txt` to support the new model.
 - `final_submission.csv` is the prediction output generated from the test set at the end of the notebook.
