@@ -109,17 +109,17 @@ st.markdown("""
 # ------------------------------------------------------------------
 @st.cache_resource
 def load_model():
-    model = joblib.load("gb_model.pkl")
+    model = joblib.load("xgb_model.pkl")
     cols = joblib.load("model_columns.pkl")
     return model, cols
 
 try:
-    gb_model, model_columns = load_model()
+    xgb_model, model_columns = load_model()
     model_loaded = True
 except FileNotFoundError:
     model_loaded = False
     st.error(
-        "⚠️ Model files not found. Make sure `gb_model.pkl` and `model_columns.pkl` "
+        "⚠️ Model files not found. Make sure `xgb_model.pkl` and `model_columns.pkl` "
         "are in the same directory as this app."
     )
 
@@ -238,7 +238,7 @@ with right:
             input_data[c] = 0
         input_data = input_data[model_columns]
 
-        prediction = gb_model.predict(input_data)[0]
+        prediction = xgb_model.predict(input_data)[0]
 
         st.markdown(
             f'<div class="metric-card">'
