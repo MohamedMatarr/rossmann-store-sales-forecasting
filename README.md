@@ -29,7 +29,7 @@ Predicting daily sales for over 1,100 Rossmann drug stores across Europe. The pr
 |---|---|---|---|
 | AdaBoost Regressor | 5,403.03 | -2.12 | Performed poorly on this data; the weak learners (stumps) couldn't capture the non-linear patterns, and predictions were unstable. |
 | Gradient Boosting | 1,609.04 | 0.72 | Reduced RMSE by about 70% compared to AdaBoost, by fitting sequentially to the residuals. |
-| XGBoost (default params) | — | — | Added as a further comparison against Gradient Boosting. |
+| XGBoost (default params) | 2,438.37 | 0.36 | Added as a further comparison against Gradient Boosting. |
 | **XGBoost (GridSearchCV tuned)** | — | **0.8536** | Best-performing model overall after hyperparameter tuning with GridSearchCV. |
 
 **Best Parameters (XGBoost, via GridSearchCV):**
